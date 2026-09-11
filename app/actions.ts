@@ -1,0 +1,9 @@
+"use server";
+import { randomBytes } from "crypto";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { isCategory } from "@/lib/categories";
+import { createClient } from "@/lib/supabase/server";
+export async function createGroup(formData:FormData){const sb=await createClient();const {data:{user}}=await sb.auth.getUser();if(!user)redirect("/auth");const name=String(formData.get("name")||"").trim().slice(0,80);if(!name)return;const {data,error}=await sb.from("groups").insert({name,created_by:user.id,invite_code:randomBytes(18).toString("base64url")}).select("id").single();if(error)throw error;await sb.from("group_members").insert({group_id:data.id,user_id:user.id,role:"owner"});revalidatePath("/");redirect("/")}
+export async function saveRecommendation(input:{id?:string;groupId:string;url:string;title:string;imageUrl?:string;description?:string;sourceName?:string;sourceDomain?:string;category:string;comment?:string}){const sb=await createClient();const {data:{user}}=await sb.auth.getUser();if(!user)throw new Error("Non authentifiée");if(!isCategory(input.category))throw new Error("Choisis une catégorie");const row={group_id:input.groupId,user_id:user.id,url:input.url,title:input.title.trim().slice(0,300),image_url:input.imageUrl?.trim()||null,description:input.description?.slice(0,1000)||null,source_name:input.sourceName?.slice(0,120)||null,source_domain:input.sourceDomain?.slice(0,255)||null,category:input.category,comment:input.comment?.trim().slice(0,500)||null};const {error}=input.id?await sb.from("recommendations").update(row).eq("id",input.id):await sb.from("recommendations").insert(row);if(error)throw new Error(error.message);revalidatePath("/")}
+export async function deleteRecommendation(id:string){const sb=await createClient();const {error}=await sb.from("recommendations").delete().eq("id",id);if(error)throw new Error(error.message);revalidatePath("/");redirect("/")}
