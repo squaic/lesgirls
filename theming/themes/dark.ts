@@ -1,0 +1,47 @@
+import { Theme } from "../Theme";
+
+const darkTheme: Theme = {
+  name: "dark",
+  colors: {
+    background: "hsl(348 12% 10%)",
+    foreground: "hsl(30 25% 94%)",
+    card: "hsl(348 11% 14%)",
+    cardForeground: "hsl(30 25% 94%)",
+    popover: "hsl(348 11% 14%)",
+    popoverForeground: "hsl(30 25% 94%)",
+    primary: "hsl(30 25% 94%)",
+    primaryForeground: "hsl(350 14% 23%)",
+    secondary: "hsl(348 10% 19%)",
+    secondaryForeground: "hsl(30 25% 94%)",
+    tertiary: "hsl(15 15% 38%)",
+    tertiaryForeground: "hsl(30 25% 94%)",
+    muted: "hsl(348 9% 18%)",
+    mutedForeground: "hsl(24 10% 65%)",
+    accent: "hsl(15 14% 33%)",
+    accentForeground: "hsl(30 25% 94%)",
+    destructive: "hsl(2 62% 58%)",
+    destructiveForeground: "hsl(0 0% 100%)",
+    success: "hsl(148 34% 48%)",
+    successForeground: "hsl(0 0% 100%)",
+    warning: "hsl(35 70% 58%)",
+    warningForeground: "hsl(348 12% 10%)",
+    border: "hsl(348 8% 25%)",
+    input: "hsl(348 9% 18%)",
+    ring: "hsl(30 25% 94%)",
+    overlay: "hsl(348 12% 4%)",
+    notification: "hsl(2 62% 58%)",
+  },
+  typography: {
+    h1: { fontSize: "36px", fontFamily: "Georgia", fontWeight: "400" },
+    h2: { fontSize: "28px", fontFamily: "Georgia", fontWeight: "400" },
+    h3: { fontSize: "22px", fontFamily: "Georgia", fontWeight: "400" },
+    h4: { fontSize: "18px", fontFamily: "System", fontWeight: "600" },
+    h5: { fontSize: "16px", fontFamily: "System", fontWeight: "600" },
+    h6: { fontSize: "14px", fontFamily: "System", fontWeight: "600" },
+    body: { fontSize: "15px", fontFamily: "System", fontWeight: "400" },
+    caption: { fontSize: "12px", fontFamily: "System", fontWeight: "500" },
+    button: { fontSize: "15px", fontFamily: "System", fontWeight: "600" },
+  },
+};
+
+export default darkTheme;

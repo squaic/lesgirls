@@ -1,0 +1,47 @@
+import { Theme } from "../Theme";
+
+const lightTheme: Theme = {
+  name: "light",
+  colors: {
+    background: "hsl(30 38% 98%)",
+    foreground: "hsl(350 14% 23%)",
+    card: "hsl(0 0% 100%)",
+    cardForeground: "hsl(350 14% 23%)",
+    popover: "hsl(0 0% 100%)",
+    popoverForeground: "hsl(350 14% 23%)",
+    primary: "hsl(350 14% 23%)",
+    primaryForeground: "hsl(30 38% 98%)",
+    secondary: "hsl(25 25% 94%)",
+    secondaryForeground: "hsl(350 14% 23%)",
+    tertiary: "hsl(15 20% 80%)",
+    tertiaryForeground: "hsl(350 14% 23%)",
+    muted: "hsl(28 24% 95%)",
+    mutedForeground: "hsl(15 8% 51%)",
+    accent: "hsl(15 21% 82%)",
+    accentForeground: "hsl(350 14% 23%)",
+    destructive: "hsl(1 56% 47%)",
+    destructiveForeground: "hsl(0 0% 100%)",
+    success: "hsl(148 30% 35%)",
+    successForeground: "hsl(0 0% 100%)",
+    warning: "hsl(35 67% 45%)",
+    warningForeground: "hsl(0 0% 100%)",
+    border: "hsl(22 18% 88%)",
+    input: "hsl(25 24% 93%)",
+    ring: "hsl(350 14% 23%)",
+    overlay: "hsl(350 14% 12%)",
+    notification: "hsl(1 56% 47%)",
+  },
+  typography: {
+    h1: { fontSize: "36px", fontFamily: "Georgia", fontWeight: "400" },
+    h2: { fontSize: "28px", fontFamily: "Georgia", fontWeight: "400" },
+    h3: { fontSize: "22px", fontFamily: "Georgia", fontWeight: "400" },
+    h4: { fontSize: "18px", fontFamily: "System", fontWeight: "600" },
+    h5: { fontSize: "16px", fontFamily: "System", fontWeight: "600" },
+    h6: { fontSize: "14px", fontFamily: "System", fontWeight: "600" },
+    body: { fontSize: "15px", fontFamily: "System", fontWeight: "400" },
+    caption: { fontSize: "12px", fontFamily: "System", fontWeight: "500" },
+    button: { fontSize: "15px", fontFamily: "System", fontWeight: "600" },
+  },
+};
+
+export default lightTheme;

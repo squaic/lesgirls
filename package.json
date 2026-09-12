@@ -1,1 +1,49 @@
-{"name":"les-girlz","version":"0.1.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start","lint":"eslint .","typecheck":"tsc --noEmit"},"dependencies":{"@supabase/ssr":"^0.7.0","@supabase/supabase-js":"^2.57.4","next":"^15.5.2","react":"^19.1.1","react-dom":"^19.1.1"},"devDependencies":{"@eslint/eslintrc":"^3.3.1","@tailwindcss/postcss":"^4.1.13","@types/node":"^22.18.1","@types/react":"^19.1.12","@types/react-dom":"^19.1.9","autoprefixer":"^10.4.21","eslint":"^9.35.0","eslint-config-next":"^15.5.2","postcss":"^8.5.6","tailwindcss":"^4.1.13","typescript":"^5.9.2"}}
+{
+  "name": "les-girls",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web",
+    "build:web": "node scripts/prepare-pwa-icons.cjs && expo export -p web",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~55.0.12",
+    "@react-navigation/bottom-tabs": "^7.15.5",
+    "@react-navigation/native": "^7.1.33",
+    "@supabase/supabase-js": "^2.57.4",
+    "clsx": "^2.1.1",
+    "expo": "^55.0.0",
+    "expo-asset": "~55.0.19",
+    "expo-constants": "~55.0.17",
+    "expo-image": "~55.0.11",
+    "expo-linking": "~55.0.17",
+    "expo-router": "~55.0.18",
+    "expo-splash-screen": "~55.0.24",
+    "expo-status-bar": "~55.0.6",
+    "expo-system-ui": "~55.0.21",
+    "lucide-react-native": "^0.562.0",
+    "nativewind": "~4.2.5",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.10",
+    "react-native-gesture-handler": "~2.30.0",
+    "react-native-reanimated": "4.2.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.23.0",
+    "react-native-svg": "15.15.3",
+    "react-native-web": "^0.21.0",
+    "react-native-worklets": "0.7.4",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/node": "^22.18.1",
+    "@types/react": "~19.2.10",
+    "babel-preset-expo": "^55.0.25",
+    "tailwindcss": "^3.4.0",
+    "typescript": "~5.9.2"
+  }
+}

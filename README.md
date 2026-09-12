@@ -1,14 +1,33 @@
-# Les Girlz
+# Les Girls
 
-MVP mobile-first pour conserver les bons plans partagés dans un groupe privé. Construit avec Next.js, TypeScript, Tailwind CSS et Supabase.
+Mobile-first private recommendation app for books, films, series and favorite places.
 
-## Installation
+## Stack
 
-1. Créer un projet Supabase puis exécuter `supabase/migrations/001_initial_schema.sql` dans l’éditeur SQL.
-2. Copier `.env.example` vers `.env.local` et renseigner l’URL et la clé publique Supabase. Ajouter facultativement `NEXT_PUBLIC_SITE_URL` pour afficher un lien d’invitation absolu.
-3. Dans Supabase Auth, activer Email/Password et configurer l’URL du site.
-4. Lancer `npm install`, puis `npm run dev`.
+Expo 55, React Native, Expo Router, NativeWind, Supabase and Vercel.
 
-## Sécurité
+## Backend
 
-Toutes les lectures et écritures métier sont protégées par Row Level Security. Les recommandations ne sont visibles qu’aux membres du groupe et seuls leurs auteurs peuvent les modifier ou les supprimer. L’extracteur de métadonnées valide les protocoles et les résolutions DNS à chaque redirection, refuse les réseaux privés, limite le temps et la taille de réponse, et traite uniquement le HTML comme du texte.
+The app reuses the existing Supabase schema: `profiles`, `groups`, `group_members` and `recommendations`. RLS remains the security boundary. The client uses only the public anon/publishable key; never expose a `service_role` key.
+
+## Environment variables
+
+Preferred Expo names:
+
+```bash
+EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your-public-key
+```
+
+For compatibility with the existing Vercel project, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are also supported.
+
+## Commands
+
+```bash
+npm install
+npm run typecheck
+npm run web
+npm run build:web
+```
+
+The Vercel web build exports to `dist`. `api/metadata.ts` provides authenticated URL metadata extraction. The web app includes a PWA manifest, app icon and service worker so it can be added to an iPhone or Android home screen.
