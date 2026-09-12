@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Brand } from "@/components/brand";
 import { BottomNav } from "@/components/bottom-nav";
 import { RecommendationCard } from "@/components/recommendation-card";
-import { CATEGORIES, CATEGORY_LABELS, isCategory } from "@/lib/categories";
+import { CATEGORY_LABELS, isCategory } from "@/lib/categories";
 import { createClient } from "@/lib/supabase/server";
 import type { Recommendation } from "@/lib/types";
 import { createGroup } from "./actions";
@@ -36,22 +36,18 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ c
   const firstName = user.user_metadata.first_name || "Girl";
 
   return <main className="shell">
-    <header className="px-5 pb-0 pt-6">
+    <header className="border-b border-[var(--line)] px-4 py-3">
       <div className="flex items-center justify-between">
-        <div><Brand small /><p className="mt-1 text-[10px] uppercase tracking-[.13em] text-[var(--muted)]">{membership.groups.name}</p></div>
-        <Link href="/profile" aria-label="Ouvrir le profil" className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line)] text-xs font-medium">{firstName[0].toUpperCase()}</Link>
-      </div>
-      <div className="mt-7 flex gap-5 overflow-x-auto border-b border-[var(--line)] [scrollbar-width:none]">
-        <Link href="/" className={`filter ${!category ? "filter-active" : ""}`}>Tous</Link>
-        {CATEGORIES.map((item) => <Link key={item} href={`/?category=${item}`} className={`filter ${category === item ? "filter-active" : ""}`}>{CATEGORY_LABELS[item]}</Link>)}
+        <div><Brand small /><p className="mt-0.5 text-[9px] uppercase tracking-[.12em] text-[var(--muted)]">{membership.groups.name}</p></div>
+        <Link href="/profile" aria-label="Ouvrir le profil" className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--line)] text-[11px] font-semibold">{firstName[0].toUpperCase()}</Link>
       </div>
     </header>
-    <section className="min-h-[70dvh] px-5 pb-8 pt-8">
-      <div className="mb-7 flex items-end justify-between"><div><p className="text-[9px] uppercase tracking-[.2em] text-[var(--muted)]">Le carnet</p><h1 className="serif mt-1 text-[29px] font-normal">{isCategory(category) ? CATEGORY_LABELS[category] : "Derniers coups de cœur"}</h1></div></div>
-      {data?.length ? <div className="space-y-7">{(data as Recommendation[]).map((item) => <RecommendationCard key={item.id} item={item} currentUser={user.id} />)}</div> : (
+    <section className="min-h-[70dvh] px-4 pb-6 pt-5">
+      <div className="mb-5"><h1 className="text-[17px] font-semibold tracking-[-.01em]">{isCategory(category) ? CATEGORY_LABELS[category] : "Derniers coups de cœur"}</h1></div>
+      {data?.length ? <div className="space-y-5">{(data as Recommendation[]).map((item) => <RecommendationCard key={item.id} item={item} currentUser={user.id} />)}</div> : (
         <div className="border-y border-[var(--line)] px-5 py-16 text-center"><span className="serif text-4xl">♡</span><h2 className="serif mt-4 text-2xl">Le carnet est encore vide</h2><p className="mt-2 text-sm leading-6 text-[var(--muted)]">Ajoutez le premier coup de cœur dont tout le monde devrait se souvenir.</p><Link href="/add" className="btn btn-primary mt-7">Ajouter un coup de cœur</Link></div>
       )}
     </section>
-    <BottomNav />
+    <BottomNav currentCategory={isCategory(category) ? category : undefined} />
   </main>;
 }

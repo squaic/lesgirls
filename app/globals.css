@@ -3,7 +3,7 @@
 :root { --ink:#423234; --muted:#857779; --cream:#faf8f4; --paper:#ffffff; --line:#e9e4df; --accent:#6b5147; --danger:#9b3f45; }
 * { box-sizing:border-box; }
 html { background:var(--cream); }
-body { margin:0; color:var(--ink); background:var(--cream); font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:15px; -webkit-font-smoothing:antialiased; }
+body { margin:0; color:var(--ink); background:var(--cream); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; font-size:15px; -webkit-font-smoothing:antialiased; }
 button,a,input,textarea,select { font:inherit; color:inherit; }
 a { text-decoration:none; }
 .serif { font-family:"Iowan Old Style","Baskerville","Times New Roman",serif; }
@@ -26,9 +26,10 @@ textarea.field { padding-top:13px; min-height:104px; resize:vertical; }
 .filter-active { border-color:var(--ink); color:var(--ink); }
 .error { padding:11px 13px; color:var(--danger); border:1px solid #e7cfd0; border-radius:4px; background:#fcf7f6; font-size:13px; }
 .icon-button { display:flex; width:40px; height:40px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:50%; background:white; }
-.bottom-nav { position:sticky; bottom:0; z-index:30; display:grid; grid-template-columns:repeat(3,1fr); align-items:center; height:62px; padding-bottom:env(safe-area-inset-bottom); border-top:1px solid var(--line); background:rgba(255,255,255,.96); backdrop-filter:blur(12px); }
+.bottom-nav { position:sticky; bottom:0; z-index:30; display:grid; grid-template-columns:repeat(6,1fr); align-items:center; height:62px; padding-bottom:env(safe-area-inset-bottom); border-top:1px solid var(--line); background:rgba(255,255,255,.97); backdrop-filter:blur(12px); }
 .nav-icon { position:relative; display:flex; height:100%; align-items:center; justify-content:center; color:#998f8f; }
 .nav-icon-active { color:var(--ink); }
 .nav-icon-active::after { content:""; position:absolute; bottom:7px; width:3px; height:3px; border-radius:50%; background:var(--ink); }
+.nav-icon-add svg { width:27px; height:27px; color:var(--ink); stroke-width:1.5; }
 .clamp-title { display:-webkit-box; overflow:hidden; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
 @media (min-width:700px) { .shell { margin-block:24px; min-height:calc(100dvh - 48px); border:1px solid var(--line); } }
