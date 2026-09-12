@@ -1,19 +1,13 @@
-import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
-
-import { useTheme } from "@/theming/ThemeProvider";
+import { Image, StyleSheet, View } from "react-native";
 
 const brandLogo = require("../../assets/images/les-girls/brand-logo.png");
 
 export function Brand({ compact = false }: { compact?: boolean }) {
-  const { theme } = useTheme();
-
   return (
     <View className="items-center" accessibilityRole="image" accessibilityLabel="Les Girls">
       <Image
         source={brandLogo}
-        contentFit="contain"
-        tintColor={theme.name === "dark" ? theme.colors.foreground : undefined}
+        resizeMode="contain"
         style={compact ? styles.compactLogo : styles.logo}
       />
     </View>
@@ -21,6 +15,6 @@ export function Brand({ compact = false }: { compact?: boolean }) {
 }
 
 const styles = StyleSheet.create({
-  compactLogo: { width: 116, height: 41 },
-  logo: { width: 270, height: 95 },
+  compactLogo: { width: 116, height: 42 },
+  logo: { width: 270, height: 97 },
 });
