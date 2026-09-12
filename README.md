@@ -1,6 +1,6 @@
-# Les Girlz
+# Les Girls
 
-MVP mobile-first pour conserver les bons plans partagés dans un groupe privé. Construit avec Next.js, TypeScript, Tailwind CSS et Supabase.
+MVP mobile-first pour conserver les coups de cœur partagés dans un groupe privé. Construit avec Next.js, TypeScript, Tailwind CSS et Supabase.
 
 ## Installation
 
