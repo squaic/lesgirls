@@ -16,36 +16,36 @@ export function RecommendationCard({
   }).format(new Date(item.created_at));
 
   const content = (
-    <div className="grid grid-cols-[112px_1fr]">
-      <div className="relative min-h-[136px] bg-[#f1efe9]">
+    <>
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f0eb]">
         {item.image_url ? (
           <Image src={item.image_url} alt="" fill className="object-cover" unoptimized />
         ) : (
-          <div className="flex h-full items-center justify-center text-3xl text-[#aaa39a]">
+          <div className="flex h-full items-center justify-center text-5xl text-[#b7a9a6]">
             {CATEGORY_ICONS[item.category]}
           </div>
         )}
       </div>
 
-      <div className="flex min-w-0 flex-col p-4">
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <span className="text-[10px] font-medium uppercase tracking-[.14em] text-[#77716a]">
-            {CATEGORY_LABELS[item.category]}
+      <div className="px-4 pb-4 pt-4 text-[#423234]">
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <span className="text-[11px] font-semibold uppercase tracking-[.12em] text-[#8b7e7f]">
+            {item.source_name || CATEGORY_LABELS[item.category]}
           </span>
-          {item.url && <span className="text-xs text-[#77716a]">↗</span>}
+          {item.url && <span className="text-sm text-[#8b7e7f]">↗</span>}
         </div>
 
-        <h2 className="text-[18px] font-medium leading-[1.2] tracking-[-.02em]">{item.title}</h2>
+        <h2 className="line-clamp-3 font-[Georgia,'Times_New_Roman',serif] text-[23px] leading-[1.12] tracking-[-.025em]">
+          {item.title}
+        </h2>
 
         {item.comment && (
-          <p className="mt-2 line-clamp-2 text-[13px] leading-5 text-[#615d57]">“{item.comment}”</p>
+          <p className="mt-3 line-clamp-3 text-[13px] leading-5 text-[#756668]">
+            {item.comment}
+          </p>
         )}
-
-        <div className="mt-auto pt-4 text-[11px] text-[#8a857e]">
-          {item.profiles?.first_name || "Une Girl"} · {date}
-        </div>
       </div>
-    </div>
+    </>
   );
 
   return (
@@ -55,16 +55,19 @@ export function RecommendationCard({
           {content}
         </a>
       ) : (
-        content
+        <div>{content}</div>
       )}
 
-      {currentUser === item.user_id && (
-        <footer className="border-t border-[#e6e2db] px-4 py-2 text-right text-[11px] uppercase tracking-[.08em]">
-          <Link href={`/recommendations/${item.id}/edit`} className="font-medium">
+      <footer className="flex items-center justify-between border-t border-[#eee7e2] px-4 py-3 text-[11px] text-[#8b7e7f]">
+        <span>
+          {item.profiles?.first_name || "Une Girl"} · {date}
+        </span>
+        {currentUser === item.user_id && (
+          <Link href={`/recommendations/${item.id}/edit`} className="font-semibold text-[#423234]">
             Modifier
           </Link>
-        </footer>
-      )}
+        )}
+      </footer>
     </article>
   );
 }
