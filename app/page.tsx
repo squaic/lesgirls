@@ -9,7 +9,7 @@ import type { Recommendation } from "@/lib/types";
 import { createGroup } from "./actions";
 
 const FILTERS = [
-  { label: "Tout", href: "/" },
+  { label: "Tout", href: "/", key: undefined },
   { label: "Livre", href: "/?category=books", key: "books" },
   { label: "Film", href: "/?category=films", key: "films" },
   { label: "Série", href: "/?category=series", key: "series" },
