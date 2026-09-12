@@ -73,9 +73,18 @@ export default async function Home({
   if (profilesError) throw new Error(profilesError.message);
 
   const firstNames = new Map((profiles || []).map((profile) => [profile.id, profile.first_name]));
+  const currentUserFirstName =
+    typeof user.user_metadata.first_name === "string" && user.user_metadata.first_name.trim()
+      ? user.user_metadata.first_name.trim()
+      : "Une Girlz";
+
   const data = (recommendations || []).map((item) => ({
     ...item,
-    profiles: { first_name: firstNames.get(item.user_id) || "Une Girlz" },
+    profiles: {
+      first_name:
+        firstNames.get(item.user_id) ||
+        (item.user_id === user.id ? currentUserFirstName : "Une Girlz"),
+    },
   })) as Recommendation[];
 
   return (
