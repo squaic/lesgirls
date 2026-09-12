@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { LesGirlsHorizontalLogo } from "@/components/les-girls-horizontal-logo";
 import { BottomNav } from "@/components/bottom-nav";
 import { RecommendationCard } from "@/components/recommendation-card";
-import { CATEGORIES, CATEGORY_LABELS, isCategory } from "@/lib/categories";
+import { CATEGORY_LABELS, isCategory } from "@/lib/categories";
 import { createClient } from "@/lib/supabase/server";
 import type { Recommendation } from "@/lib/types";
 import { createGroup } from "./actions";
@@ -104,25 +104,11 @@ export default async function Home({
           </div>
           <Link
             href="/profile"
+            aria-label="Profil"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d9cdca] text-sm font-semibold text-[#423234]"
           >
             {user.user_metadata.first_name?.[0] || "G"}
           </Link>
-        </div>
-
-        <div className="mt-6 flex gap-5 overflow-x-auto pb-1 [scrollbar-width:none]">
-          <Link href="/" className={`chip ${!category ? "chip-active" : ""}`}>
-            Derniers
-          </Link>
-          {CATEGORIES.map((c) => (
-            <Link
-              key={c}
-              href={`/?category=${c}`}
-              className={`chip ${category === c ? "chip-active" : ""}`}
-            >
-              {CATEGORY_LABELS[c]}
-            </Link>
-          ))}
         </div>
       </header>
 
