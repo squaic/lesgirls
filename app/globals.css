@@ -3,39 +3,43 @@
 :root {
   --ink: #423234;
   --paper: #ffffff;
-  --cream: #faf7f2;
-  --muted: #8d7f7d;
-  --line: #e7ddd7;
+  --cream: #f7f3ed;
+  --muted: #a79c98;
+  --line: #eee8e2;
 }
 
 * { box-sizing: border-box; }
 
+html { background: #eee9e3; }
+
 body {
   margin: 0;
   color: var(--ink);
-  background: #f4f0eb;
+  background: #eee9e3;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 button, a, input, textarea, select { font: inherit; color: inherit; }
 a { text-decoration: none; }
+button { cursor: pointer; }
 
 .serif,
 .logo-serif {
-  font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
 }
 
 .serif {
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  font-weight: 600;
+  letter-spacing: -0.028em;
 }
 
 .logo-serif {
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.055em;
 }
 
 .shell {
@@ -44,8 +48,7 @@ a { text-decoration: none; }
   margin: auto;
   background: var(--paper);
   position: relative;
-  border-left: 1px solid #eee7e2;
-  border-right: 1px solid #eee7e2;
+  overflow-x: hidden;
 }
 
 .btn {
@@ -54,17 +57,19 @@ a { text-decoration: none; }
   justify-content: center;
   gap: .5rem;
   width: 100%;
-  min-height: 48px;
-  border-radius: 8px;
+  min-height: 54px;
+  border-radius: 999px;
   border: 1px solid var(--ink);
   background: white;
   color: var(--ink);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0;
-  cursor: pointer;
-  transition: .18s;
+  transition: opacity .16s ease, transform .16s ease, background .16s ease;
 }
+
+.btn:active { transform: scale(.99); }
+.btn:disabled { cursor: default; opacity: .55; }
 
 .btn-primary {
   color: white;
@@ -73,7 +78,7 @@ a { text-decoration: none; }
   box-shadow: none;
 }
 
-.btn-primary:hover { background: #332629; }
+.btn-primary:hover { background: #362829; }
 
 .btn-secondary {
   color: var(--ink);
@@ -83,62 +88,64 @@ a { text-decoration: none; }
 
 .field {
   width: 100%;
-  min-height: 48px;
-  padding: 0 14px;
+  min-height: 50px;
+  padding: 0 2px;
   color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: white;
+  border: 0;
+  border-bottom: 1px solid #d8d1cc;
+  border-radius: 0;
+  background: transparent;
   outline: none;
+  font-size: 16px;
 }
 
-.field::placeholder { color: #b6aaa6; }
-.field:focus { border-color: var(--ink); box-shadow: 0 0 0 2px rgba(66,50,52,.06); }
+.field::placeholder { color: #aba19d; }
+.field:focus { border-bottom-color: var(--ink); box-shadow: none; }
 
 textarea.field {
-  padding-top: 13px;
-  min-height: 100px;
+  padding: 15px 16px;
+  min-height: 112px;
   resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--cream);
 }
 
 .label {
   display: block;
-  margin: 0 0 7px;
-  font-size: 13px;
+  margin: 0 0 9px;
+  color: #938782;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--ink);
+  letter-spacing: .18em;
+  text-transform: uppercase;
 }
 
 .card {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
   background: white;
-  box-shadow: 0 4px 16px rgba(66,50,52,.035);
 }
 
 .chip {
   white-space: nowrap;
-  border: 1px solid var(--line);
-  background: white;
-  padding: 7px 11px;
-  border-radius: 8px;
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0;
+  border: 0;
+  border-bottom: 1.5px solid transparent;
+  background: transparent;
+  padding: 0 0 7px;
+  border-radius: 0;
+  color: #aaa09c;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .chip-active {
-  color: white;
-  border-color: var(--ink);
-  background: var(--ink);
+  color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 
 .error {
-  padding: 11px 14px;
+  padding: 11px 13px;
   color: #8f2e3f;
   background: #faf0f1;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 13px;
 }
