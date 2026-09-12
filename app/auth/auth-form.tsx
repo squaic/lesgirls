@@ -40,7 +40,7 @@ export function AuthForm({ next }: { next?: string }) {
       }
 
       if (!result.data.session) {
-        setMessage("Compte créé. Vérifie ton e-mail pour confirmer ton inscription, puis tu seras connectée.");
+        setMessage("Compte créé. Vérifie ton e-mail pour confirmer ton inscription.");
         setBusy(false);
         return;
       }
@@ -61,58 +61,58 @@ export function AuthForm({ next }: { next?: string }) {
 
   return (
     <>
-      <form onSubmit={submit} className="space-y-3">
+      <form onSubmit={submit} className="space-y-4">
         {signup && (
-          <div>
-            <label className="label">Ton prénom</label>
-            <input
-              className="field"
-              name="firstName"
-              required
-              autoComplete="given-name"
-              placeholder="Léa"
-            />
-          </div>
+          <input
+            className="field"
+            name="firstName"
+            required
+            autoComplete="given-name"
+            placeholder="Prénom"
+            aria-label="Prénom"
+          />
         )}
-        <div>
-          <label className="label">Adresse e-mail</label>
-          <input
-            className="field"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="lea@exemple.fr"
-          />
-        </div>
-        <div>
-          <label className="label">Mot de passe</label>
-          <input
-            className="field"
-            name="password"
-            type="password"
-            minLength={6}
-            required
-            autoComplete={signup ? "new-password" : "current-password"}
-            placeholder="6 caractères minimum"
-          />
-        </div>
+        <input
+          className="field"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="Adresse e-mail"
+          aria-label="Adresse e-mail"
+        />
+        <input
+          className="field"
+          name="password"
+          type="password"
+          minLength={6}
+          required
+          autoComplete={signup ? "new-password" : "current-password"}
+          placeholder="Mot de passe"
+          aria-label="Mot de passe"
+        />
+
         {error && <p className="error">{error}</p>}
-        {message && <p className="text-sm leading-6 text-[#7f6f70]">{message}</p>}
-        <button disabled={busy} className="btn btn-primary">
+        {message && <p className="text-sm leading-6 text-[#8f8581]">{message}</p>}
+
+        <button disabled={busy} className="btn btn-primary mt-6">
           {busy ? "Un instant…" : signup ? "Créer mon compte" : "Se connecter"}
         </button>
       </form>
-      <button
-        onClick={() => {
-          setSignup(!signup);
-          setError("");
-          setMessage("");
-        }}
-        className="mt-5 w-full text-sm font-semibold text-[#423234] underline decoration-[#c9bbb6] underline-offset-4"
-      >
-        {signup ? "J’ai déjà un compte" : "Première fois ? Créer mon compte"}
-      </button>
+
+      <p className="mt-7 text-center text-sm text-[#aaa09c]">
+        {signup ? "Déjà un compte ? " : "Pas encore de compte ? "}
+        <button
+          onClick={() => {
+            setSignup(!signup);
+            setError("");
+            setMessage("");
+          }}
+          className="font-medium text-[#423234] underline underline-offset-4"
+        >
+          {signup ? "Se connecter" : "Rejoindre"}
+        </button>
+      </p>
     </>
   );
 }
