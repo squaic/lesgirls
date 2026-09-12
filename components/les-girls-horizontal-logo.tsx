@@ -9,32 +9,23 @@ export function LesGirlsHorizontalLogo({
 }) {
   const logo = (
     <div
-      className={`inline-flex items-end justify-center text-[#423234] ${
-        compact ? "gap-2" : "gap-3"
-      }`}
+      className={`inline-flex items-center justify-center text-[#423234] ${compact ? "gap-2" : "gap-2.5"}`}
       aria-label="Les Girls"
     >
-      <span
-        className={`font-[Georgia,'Times_New_Roman',serif] font-normal tracking-[-0.075em] ${
-          compact ? "text-[30px] leading-none" : "text-[58px] leading-[0.9]"
-        }`}
-      >
+      <span className={`logo-serif ${compact ? "text-[25px] leading-none" : "text-[34px] leading-none"}`}>
         Les Girls
       </span>
       <svg
-        viewBox="0 0 72 92"
+        viewBox="0 0 40 52"
         aria-hidden="true"
-        className={compact ? "h-9 w-7 shrink-0" : "h-[66px] w-[51px] shrink-0"}
+        className={compact ? "h-7 w-5 shrink-0" : "h-9 w-7 shrink-0"}
         fill="none"
       >
-        <ellipse cx="36" cy="12" rx="27" ry="8" stroke="currentColor" strokeWidth="2.3" />
-        <path d="M11 13.5L31 49c2.2 4 7.8 4 10 0l20-35.5" fill="currentColor" />
-        <path d="M36 52v27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-        <ellipse cx="36" cy="82" rx="14" ry="3.4" fill="currentColor" />
-        <path d="M17 12.5c8 3.2 30 3.2 38 0" stroke="#f4e5d5" strokeWidth="2.5" strokeLinecap="round" />
-        <ellipse cx="31" cy="14" rx="3.2" ry="1.9" fill="#f4e5d5" transform="rotate(-15 31 14)" />
-        <ellipse cx="37" cy="12.5" rx="3.2" ry="1.9" fill="#f4e5d5" transform="rotate(18 37 12.5)" />
-        <ellipse cx="42" cy="15" rx="3.2" ry="1.9" fill="#f4e5d5" transform="rotate(7 42 15)" />
+        <ellipse cx="20" cy="7" rx="14" ry="4" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M7 8.5 17 27c1.3 2.4 4.7 2.4 6 0L33 8.5" fill="currentColor" />
+        <path d="M20 29v15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <ellipse cx="20" cy="46" rx="7.5" ry="2" fill="currentColor" />
+        <path d="M10.5 8c4 1.8 15 1.8 19 0" stroke="#f7f3ed" strokeWidth="1.7" strokeLinecap="round" />
       </svg>
     </div>
   );
