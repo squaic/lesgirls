@@ -1,2 +1,27 @@
 import Link from "next/link";
-export function BottomNav(){return <nav className="sticky bottom-0 z-20 flex h-[76px] items-center justify-around border-t border-[#eadfd9] bg-white/95 px-4 backdrop-blur"><Link className="flex flex-col items-center gap-1 text-xs font-bold" href="/"><span className="text-xl">⌂</span>Accueil</Link><Link href="/add" className="-mt-8 flex h-16 w-16 items-center justify-center rounded-full bg-[#e84b72] text-3xl text-white shadow-lg" aria-label="Ajouter">＋</Link><Link className="flex flex-col items-center gap-1 text-xs text-[#8b7a7c]" href="/profile"><span className="text-xl">♡</span>Profil</Link></nav>}
+
+export function BottomNav() {
+  return (
+    <nav className="sticky bottom-0 z-20 grid grid-cols-3 border-t border-[#d9d5ce] bg-white">
+      <Link
+        className="flex h-16 items-center justify-center text-[11px] font-medium uppercase tracking-[.08em]"
+        href="/"
+      >
+        Accueil
+      </Link>
+      <Link
+        href="/add"
+        className="flex h-16 items-center justify-center border-x border-[#d9d5ce] text-[11px] font-medium uppercase tracking-[.08em]"
+        aria-label="Ajouter"
+      >
+        Ajouter
+      </Link>
+      <Link
+        className="flex h-16 items-center justify-center text-[11px] font-medium uppercase tracking-[.08em]"
+        href="/profile"
+      >
+        Profil
+      </Link>
+    </nav>
+  );
+}
