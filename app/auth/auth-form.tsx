@@ -98,7 +98,7 @@ export function AuthForm({ next }: { next?: string }) {
           />
         </div>
         {error && <p className="error">{error}</p>}
-        {message && <p className="text-sm leading-6 text-[#806f71]">{message}</p>}
+        {message && <p className="text-sm leading-6 text-[#7f6f70]">{message}</p>}
         <button disabled={busy} className="btn btn-primary">
           {busy ? "Un instant…" : signup ? "Créer mon compte" : "Se connecter"}
         </button>
@@ -109,7 +109,7 @@ export function AuthForm({ next }: { next?: string }) {
           setError("");
           setMessage("");
         }}
-        className="mt-5 w-full text-sm font-bold text-[#e84b72]"
+        className="mt-5 w-full text-sm font-semibold text-[#423234] underline decoration-[#c9bbb6] underline-offset-4"
       >
         {signup ? "J’ai déjà un compte" : "Première fois ? Créer mon compte"}
       </button>
