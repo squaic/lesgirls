@@ -1,4 +1,4 @@
-import { LesGirlsLogo } from "@/components/les-girls-logo";
+import { LesGirlsHorizontalLogo } from "@/components/les-girls-horizontal-logo";
 import { AuthForm } from "./auth-form";
 
 export default async function AuthPage({
@@ -11,9 +11,9 @@ export default async function AuthPage({
   return (
     <main className="shell flex min-h-dvh flex-col bg-white px-6 py-10 text-[#423234]">
       <div className="flex flex-1 flex-col justify-center">
-        <div className="mb-10 text-center">
-          <LesGirlsLogo />
-          <h1 className="serif mt-8 text-[30px] leading-tight">
+        <div className="mb-9 text-center">
+          <LesGirlsHorizontalLogo linked={false} />
+          <h1 className="serif mt-9 text-[30px] leading-tight">
             Nos coups de cœur,
             <br />
             rien qu’entre nous.
