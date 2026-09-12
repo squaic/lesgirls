@@ -21,6 +21,6 @@ export function Brand({ compact = false }: { compact?: boolean }) {
 }
 
 const styles = StyleSheet.create({
-  compactLogo: { width: 112, height: 45 },
-  logo: { width: 300, height: 120 },
+  compactLogo: { width: 116, height: 41 },
+  logo: { width: 270, height: 95 },
 });
