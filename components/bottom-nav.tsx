@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 function HomeIcon() {
   return (
@@ -46,7 +47,7 @@ function PlaceIcon() {
   );
 }
 
-function NavItem({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
+function NavItem({ href, label, children }: { href: string; label: string; children: ReactNode }) {
   return (
     <Link href={href} aria-label={label} className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-[#423234]">
       {children}
