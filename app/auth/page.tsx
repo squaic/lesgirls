@@ -9,24 +9,21 @@ export default async function AuthPage({
   const { next } = await searchParams;
 
   return (
-    <main className="shell flex min-h-dvh flex-col bg-white px-6 py-10 text-[#423234]">
-      <div className="flex flex-1 flex-col justify-center">
-        <div className="mb-9 text-center">
-          <LesGirlsHorizontalLogo linked={false} />
-          <h1 className="serif mt-9 text-[30px] leading-tight">
-            Nos coups de cœur,
-            <br />
-            rien qu’entre nous.
-          </h1>
-          <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-[#7f6f70]">
-            Films, séries, livres et bonnes adresses : garde précieusement tout ce que tes amies te recommandent.
+    <main className="shell flex min-h-dvh flex-col bg-[#f7f3ed] px-8 py-10 text-[#423234]">
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col items-center justify-center pb-10 text-center">
+          <div className="flex h-[118px] w-[118px] items-center justify-center bg-[#f2e7d8]">
+            <LesGirlsHorizontalLogo linked={false} compact />
+          </div>
+          <p className="mt-6 max-w-[290px] text-[16px] leading-6 text-[#a79c98]">
+            Le carnet d&apos;adresses, de livres et de films de vos amies.
           </p>
         </div>
-        <AuthForm next={next} />
+
+        <div className="pb-6">
+          <AuthForm next={next} />
+        </div>
       </div>
-      <p className="mt-8 text-center text-[11px] tracking-[.04em] text-[#8d7f7d]">
-        Un espace privé, sans likes ni notes.
-      </p>
     </main>
   );
 }
