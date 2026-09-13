@@ -49,44 +49,45 @@ export default async function Profile() {
     : new Date(user.created_at).getFullYear();
 
   return (
-    <main className="shell flex min-h-dvh flex-col bg-white text-[#423234]">
-      <header className="border-b border-[#eee8e2] px-6 py-5">
+    <main className="shell flex min-h-dvh flex-col bg-white text-black">
+      <header className="px-6 pb-3 pt-5">
         <div className="flex items-center justify-between">
           <LesGirlsHorizontalLogo compact />
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#eee8e2] bg-[#f7f3ed] text-sm font-medium">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2e0002] text-sm font-semibold text-white">
             {String(firstName).charAt(0).toUpperCase()}
           </div>
         </div>
       </header>
 
-      <section className="px-6 pb-8 pt-10 text-center">
-        <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#f7f3ed] serif text-[42px]">
+      <section className="px-6 pb-8 pt-8 text-center">
+        <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#2e0002] text-[38px] font-medium text-white">
           {String(firstName).charAt(0).toUpperCase()}
         </div>
-        <h1 className="serif mt-5 text-[31px]">{firstName}</h1>
-        <p className="mt-1 text-[14px] text-[#a79c98]">Rejointe en {joinedYear}</p>
+        <h1 className="serif mt-5 text-[32px] text-[#2e0002]">{firstName}</h1>
+        <p className="mt-1 text-[14px] text-[#7e7773]">Membre depuis {joinedYear}</p>
 
-        <div className="mx-auto mt-9 grid max-w-[390px] grid-cols-3">
+        <div className="mx-auto mt-9 grid max-w-[390px] grid-cols-3 rounded-[18px] bg-[#faf8f6] py-5">
           <div className="border-r border-[#eee8e2] px-2">
-            <p className="serif text-[27px]">{myShares}</p>
-            <p className="mt-1 text-[12px] text-[#a79c98]">Partages</p>
+            <p className="text-[22px] font-semibold">{myShares}</p>
+            <p className="mt-1 text-[12px] text-[#7e7773]">partages</p>
           </div>
           <div className="border-r border-[#eee8e2] px-2">
-            <p className="serif text-[27px]">{friends}</p>
-            <p className="mt-1 text-[12px] text-[#a79c98]">Amies</p>
+            <p className="text-[22px] font-semibold">{friends}</p>
+            <p className="mt-1 text-[12px] text-[#7e7773]">amies</p>
           </div>
           <div className="px-2">
-            <p className="serif text-[27px]">{totalFavorites}</p>
-            <p className="mt-1 text-[12px] text-[#a79c98]">Coups de cœur</p>
+            <p className="text-[22px] font-semibold">{totalFavorites}</p>
+            <p className="mt-1 text-[12px] text-[#7e7773]">recos</p>
           </div>
         </div>
       </section>
 
-      <section className="flex-1 border-t border-[#eee8e2] px-6 pb-10 pt-7">
-        <h2 className="text-[11px] font-semibold uppercase tracking-[.18em] text-[#938782]">Mes partages</h2>
-        <div className="mt-4 grid grid-cols-2 gap-2.5">
+      <section className="flex-1 px-6 pb-10 pt-4">
+        <h2 className="serif text-[24px] text-[#2e0002]">Mes partages</h2>
+        <p className="mt-1 text-[13px] text-[#7e7773]">Les derniers ajoutés</p>
+        <div className="mt-4 grid grid-cols-3 gap-1.5">
           {recent.map((item) => (
-            <Link key={item.id} href={`/recommendations/${item.id}/edit`} className="relative aspect-square overflow-hidden rounded-[11px] bg-[#f7f3ed]">
+            <Link key={item.id} href={`/recommendations/${item.id}/edit`} className="relative aspect-square overflow-hidden rounded-[10px] bg-[#faf8f6]">
               {item.image_url ? <Image src={item.image_url} alt="" fill className="object-cover" unoptimized /> : null}
             </Link>
           ))}
